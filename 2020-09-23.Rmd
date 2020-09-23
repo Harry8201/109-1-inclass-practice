@@ -1,0 +1,33 @@
+---
+title: "課堂練習模版"
+author: "薛健宏"
+date: "2020-09-23"
+output: html_document
+params:
+  id: "410973038"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+
+```
+# title
+
+[NTPU](https://new.ntpu.edu.tw)
+```{r}
+
+```
+
+```{python}
+
+```
+
+```{r}
+
+```
+
