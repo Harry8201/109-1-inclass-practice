@@ -1,0 +1,270 @@
+---
+title: "課堂練習模版"
+author: "薛健宏"
+date: "2020-10-20"
+output: output_format
+params:
+  id: "410973038"
+---
+```{r}
+library(lubridate)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+tpeTime <- ymd_hms("2020-03-18 13:52:40",
+        tz="Asia/Taipei")
+```
+
+```{r}
+pgTime <- mdy_hms("Mar.18, 2020, 05:52:40",
+                  tz="Europe/Lisbon")
+```
+
+```{r}
+tpeTime <- c("2020-03-18 13:52:40",
+             "2020-03-11 03:12:40")
+tpeTime <- 
+  ymd_hms(
+    tpeTime, # 呼叫tpeTime向量值
+    tz="Asia/Taipei"
+    )
+```
+
+##type/class
+
+```{r}
+class(tpeTime)
+typeof(tpeTime)
+```
+
+```{r}
+tpeTime
+print(tpeTime)
+cat(tpeTime, "\n")
+```
+
+```{r}
+as.numeric(tpeTime)
+```
+
+```{r}
+print(as.character(tpeTime))
+cat(as.character(tpeTime))
+```
+
+```{r}
+tpeTime2 <- ymd_hms("2010-03-18 16:52:40",
+                    tz="Asia/Taipei")
+pgTime2 <- mdy_hms("Mar.01, 2020, 03:52:40",
+                   tz="Europe/Lisbon")
+```
+
+```{r}
+tpeTime3 <- with_tz(tpeTime2, tz="America/New_York")
+
+typeof(tpeTime3)
+```
+
+```{r}
+tpeTime2
+```
+
+
+```{r}
+tpeTime3
+```
+
+```{r}
+cat(tpeTime2) 
+cat(tpeTime3)
+
+```
+
+```{r}
+tpeTime2 - pgTime2
+```
+
+```{r}
+tpeTime_iso8601 <- 
+  format_ISO8601(tpeTime, usetz=T)
+tpeTime_iso8601
+
+```
+
+```{r}
+library(lubridate)
+
+purchasingTime <- ymd_hms("2020-03-31T13:40:55Z")
+location <- "一芳"
+quantity <- "2"
+item <- "水果茶"
+`小明交易1` <- list(
+  ymd_hms("2020-03-31T13:40:55Z"), # Date/Time class
+  "一芳", # character
+  2, # numeric
+  "水果茶" # character
+)
+`小明交易2` <- list(purchasingTime,
+                location,
+                quantity,
+                item)
+print(`小明交易1`)
+print(`小明交易2`)
+```
+
+
+```{r}
+height <- c(mary=166, john=177, harry=176)
+print(as.character(height))
+
+```
+
+
+```{r}
+examplelist <- list(4, "Mary", TRUE)
+examplelist2 <- list(c(4,6,10), list("Mary", 177), TRUE
+                     )
+print(examplelist2)
+
+```
+
+```{r}
+exampleC <- c(c(4, 6), c(5, 7))
+print(exampleC)
+```
+
+```{r}
+# 「**2杯**」「**水果茶**」
+item1 <- list(
+  quantity=2,
+  `item name`="水果茶"
+)
+# 「**1杯**」「**日月紅茶**」
+item2 <- list(
+  quantity=1,
+  `item name`="日月紅茶"
+)
+
+mingsPurchase3 <-
+  list(
+    time = purchasingTime,
+    location = location,
+    items=list(
+      item1,
+      item2
+    )
+  )
+
+print(mingsPurchase3)
+```
+
+```{r}
+student1 <-
+  list(
+    name = character(),
+    id = character(),
+    gmail = character(),
+    googleClassroom =
+      list(
+        displayName = character()
+      ),
+    github =
+      list(
+        username = character(),
+        repoUrl = character()
+      ),
+    homeworks = list(),
+    exams = list(),
+    list()
+  )
+print(student1)
+names(student1) # 每個元素名稱
+length(student1)# 元素個數
+str(student1, 1) # 第一層基本元素架構
+```
+
+
+```{r}
+hw1 <- list(
+  date=ymd("2020-10-21"),
+  grade=10
+)
+exam1 <- list(
+  date=ymd("2020-10-28"),
+  grade=50
+)
+student1 <-
+  list(
+    name = "Martin",
+    id = "007",
+    gmail = "mt@gm.ntpu.edu.tw",
+    googleClassroom =
+      list(
+        displayName = "MT L"
+      ),
+    github =
+      list(
+        username = "tpemartin",
+        repoUrl = "https://github.com/tpemartin/109-1-inclass-practice"
+      ),
+    homeworks = list(
+      hw1
+    ),
+    exams = list(
+      exam1
+    ),
+    list()
+  )
+
+str(student1, 2)
+```
+
+
+```{r}
+str(student1, 1) # 第一層基本元素架構
+```
+
+
+```{r}
+categoryTemplate = 
+  list(
+    categoryName=character(),
+    items = list(
+    )
+  )
+
+saladCat <- list(categoryName="沙拉套餐", item = 
+                   list(
+                     "阪煎雞腿排凱薩沙拉", 
+                        203
+                     ), 
+                 list(
+                   "煙燻鮭魚佐酒醋沙拉", 
+                   203)
+                 )
+print(saladCat)
+```
+
+
+```{r}
+library(jsonlite) # 不少同學這行會有Error，還記得如何排除嗎？
+```
+
+
+```{r}
+toJSON(mingsPurchase3)
+```
+
+
+```{r}
+save(saladCat, 小明交易2, file="myObject1.Rda" )
+```
+
+
+```{r}
