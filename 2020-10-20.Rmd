@@ -81,7 +81,7 @@ tpeTime3
 ```
 
 ```{r}
-cat(tpeTime2) 
+cat(tpeTime2, "\n") 
 cat(tpeTime3)
 
 ```
@@ -264,6 +264,56 @@ toJSON(mingsPurchase3)
 
 ```{r}
 save(saladCat, 小明交易2, file="myObject1.Rda" )
+```
+
+##綜合練習
+#選一位學生將他的created_at, firstCommit, lastCommit存成Date/Time(即POSIXct) class的向量。
+
+```{r}
+browseURL("https://docs.google.com/spreadsheets/d/1EAG49qDKPWWi0ebkVr29TLrvVnoBPfkvxYY-J3xLAHY/edit#gid=458686645")
+```
+
+
+```{r}
+created_at0 <- ymd_hms("2020-03-04T06:56:29Z")
+
+creared_at <- with_tz(created_at0, tz="Asia/Taipei")
+
+firstCommit1 <- ymd_hms("2020-03-11 14:16:43", tz="Asia/Taipei")
+
+lastCommit1 <- ymd_hms("2020-03-11 14:34:33", tz="Asia/Taipei"
+)
+
+firstCommit2 <- ymd_hms("2020-03-18 13:37:12", tz="Asia/Taipei")
+
+lastCommit2 <- ymd_hms("2020-03-18 15:03:23", tz="Asia/Taipei"
+)
+
+firstCommit3 <- ymd_hms("2020-03-25 13:27:03", tz="Asia/Taipei")
+
+lastCommit3 <- ymd_hms("2020-03-25 15:07:14", tz="Asia/Taipei"
+)
+
+`Student1 in Class Practice` <- c(
+  creared_at, 
+  firstCommit1,  
+  lastCommit1, 
+  firstCommit2,  
+  lastCommit2, 
+  firstCommit3,  
+  lastCommit3 
+)
+
+print(`Student1 in Class Practice`)
+class(`Student1 in Class Practice`)
+```
+
+```{r}
+save("Student1 in Class Practice", file = "綜合練習.Rda")
+```
+
+```{r}
+load("綜合練習.Rda")
 ```
 
 
