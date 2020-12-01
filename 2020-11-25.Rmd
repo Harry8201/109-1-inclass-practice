@@ -14,6 +14,131 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Your code
 
 ```{r}
+listExample <- 
+  list(
+    student="小明",
+    `學期`=list(
+      `108-1`=list(
+        list(
+          name="個體經濟學",
+          teacher="Alice",
+          grade=85
+        )
+      ),
+      `108-2`=list(
+        list(
+          name="總體經濟學",
+          teacher="Mark",
+          grade=78
+        )
+      )
+    )
+  )
+# 有多少位置可選：
+length(listExample)
+```
+
+
+```{r}
+listExample[[1]]
+listExample[[2]]
+```
+
+```{r}
+  `.台北市預報元素值` <- 
+  list(
+    city="台北市",
+    high=25,
+    low=18
+  )
+`.新北市預報元素值` <- 
+  list(
+    city="新北市",
+    high=24,
+    low=15
+  )
+
+library(lubridate)
+`今明天氣` <-
+  list(
+    `今天日期`=ymd("2020-03-31"),
+    `明天天氣`=ymd("2020-04-01"),
+    `各地預報`=list(
+      `.台北市預報元素值`,
+      `.新北市預報元素值`
+      )
+
+  )
+length(`.台北市預報元素值`)
+`.台北市預報元素值`[[1]]
+```
+
+
+
+```{r}
+AA = c(Mary=176, John=188, Jenny= 165, Kate=170)
+LL = list(
+  Mary=list(176,"Taipei"),
+  John=list(188,"New Taipei"),
+  Jenny=list(165,"Taichung"),
+  Kate=list(170,"Hualien")
+)
+```
+
+```{r}
+AA[[1]] 
+AA[1] #AA remove 2 3 4
+```
+
+```{r}
+str(LL)
+```
+
+```{r}
+str(LL[[1]])
+LL[1]
+str(LL$Mary)
+```
+
+```{r}
+AA[c(1,4)]
+LL[c(1,4)]
+AA[c("Mary","Kate")]
+LL[c("Mary","Kate")]
+```
+
+```{r}
+library(lubridate)
+
+selection1 = list(
+  item = "番茄牛丼",
+  quantity = 1
+)
+selection2 = list(
+  item ="起司番茄牛丼",
+  quantity = 1 
+)
+
+order_value = list(selection1,selection2)
+
+oneOrder <-list( 
+restaurant = "すき家 Sukiya (新北三峽店)",
+date = mdy("Nov 10, 2020"),
+order = order_value,
+total = 328
+)
+
+oneOrder
+```
+
+```{r}
+
+oneOrder2 <- list( 
+restaurant = "すき家 Sukiya (新北三峽店)",
+date = mdy("Nov 10, 2020"),
+order = order_value,
+total = 328
+)
 
 ```
 
