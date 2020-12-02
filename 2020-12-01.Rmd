@@ -1,0 +1,132 @@
+---
+title: "課堂練習模版"
+author: "薛健宏"
+date: "2020-12-01"
+output: output_format
+params:
+  id: "410973038"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Your code
+
+```{r}
+old_fct <- 
+  factor(c("4以下","5-10","11-15"))
+levels(old_fct) # 依序下的各類別名稱
+```
+
+```{r}
+levels(old_fct) <- c("青少年", "幼兒", "兒童")
+levels(old_fct)
+old_fct
+```
+
+```{r}
+set.seed(2018)
+gender <- sample(c("M","F"), 10000, replace = T)
+head(gender)
+```
+
+```{r}
+gender_fac <- factor(
+  gender
+  )
+levels(gender_fac) <- c("女", "男")
+head(gender_fac)
+```
+
+```{r}
+old_fct2 <- 
+  factor(c("4以下","5-10","11-15", "5-10"))
+levels(old_fct2)
+
+old_fct2 <- factor(old_fct2, levels = c("4以下","5-10","11-15"))
+
+
+old_fct2
+
+```
+
+```{r}
+a <- c(Mary=178, Jack=165)
+attr(a, "family") <- "Johnson"
+attributes(a)
+
+b <- c(Ben=170, David=172)
+attr(b, "family") <- "Jenson"
+attributes(b)
+
+a_b <- c(a, b)
+attributes(a_b)
+a_b
+```
+
+```{r}
+fct_a <- factor(c("a","d","e"))
+fct_b <- factor(c("a","e","j"))
+fct_ab <- list(fct_a, fct_b)
+
+unlist(fct_ab)
+```
+
+```{r}
+thatsAlright <- 
+  jsonlite::fromJSON(
+    "https://www.dropbox.com/s/f3ox7rd5favr0o0/thatsAlright.json?dl=1"
+  )
+```
+
+```{r}
+Rmdfiles <- c("file1.Rmd", "file2.R", "file3.rmd", "file4.RMD", "myRmd.R")
+SchoolIds <- c("410973029", "410988011", "410974023","410783025","710773022","410788021","410673124","410873051","49988001")
+```
+
+```{r}
+Rmdfiles
+regexPattern="[Rr][Mm][Dd]"
+str_subset(
+  Rmdfiles, pattern=regexPattern)
+```
+
+```{r}
+str_subset(
+  SchoolIds,
+  pattern="[4](108|109)(73|88)")
+str_subset(
+  SchoolIds,
+  pattern="4(108|109)(73|88)")
+```
+
+```{r}
+sameIdentities <- c("臺北市", "台北市", "台北大學", "臺北大學", "基隆市")
+
+str_detect(
+  sameIdentities, pattern="[台臺]")
+str_view_all(
+  sameIdentities, pattern="[台臺]")
+```
+
+```{r}
+emailContent <- '親愛的_name_朋友好，
+
+  恭喜你，你的電子發票號碼_invoiceNumber_ 差點中獎。'
+cat(emailContent)
+```
+
+```{r}
+replacementNamedVector <- c(
+  "_name_" = "小新",
+  "_invoiceNumber_" = "EF-89400133"
+)
+
+synthesizedContent <- str_replace_all(
+  emailContent,
+  replacementNamedVector
+)
+cat(synthesizedContent)
+```
+
